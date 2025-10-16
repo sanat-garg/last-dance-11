@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+window.attachments = {
+  'file-0': `data:@file/markdown;base64,IyBTYW1wbGUgMQoKVGhpcyBpcyB0aGUgY29udGVudCBvZiBzYW1wbGUgZmlsZSAxLg==`,
+};
+</script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown to HTML Converter</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #007bff;
+        }
+
+        #markdown-output {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            overflow-x: auto; /* Enable horizontal scrolling for long code blocks */
+        }
+
+        pre {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto; /* Ensure code blocks are scrollable */
+        }
+
+        code {
+            font-family: 'Courier New', monospace;
+        }
+
+        /* Highlight.js theme (e.g., atom-one-light) */
+        .hljs {
+            display: block;
+            overflow-x: auto;
+            padding: 0.5em;
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .hljs-comment,
+        .hljs-quote {
+            color: #999988;
+            font-style: italic;
+        }
+
+        .hljs-keyword,
+        .hljs-selector-tag,
+        .hljs-tag {
+            color: #990055;
+            font-weight: bold;
+        }
+
+        .hljs-number,
+        .hljs-literal {
+            color: #009999;
+        }
+
+        .hljs-string,
+        .hljs-doctag {
+            color: #dd1144;
+        }
+
+        .hljs-title,
+        .hljs-section,
+        .hljs-selector-id {
+            color: #d0d020;
+            font-weight: bold;
+        }
+
+        /* Responsive design */
+        @media (max-width: 600px) {
+            .container {
+                padding: 10px;
+                margin: 10px auto;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Markdown to HTML Converter</h1>
+        <div id="markdown-output"></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        function convertMarkdownToHtml(markdown) {
+            // Simple Markdown to HTML conversion (for demonstration purposes)
+            // Replace with a robust Markdown parser like Marked.js for real-world use.
+            let html = markdown
+                .replace(/### (.*)/g, '<h3>$1</h3>')
+                .replace(/## (.*)/g, '<h2>$1</h2>')
+                .replace(/# (.*)/g, '<h1>$1</h1>')
+                .replace(/\*\*(.*)\*\*/g, '<b>$1</b>')
+                .replace(/\*(.*)\*/g, '<i>$1</i>')
+                .replace(/`(.*)`/g, '<code>$1</code>')
+                .replace(/---/g, '<hr>')
+                .replace(/\n/g, '<br>');
+            return html;
+        }
+
+        function renderMarkdown() {
+            const markdown = window.attachments['file-0'].replace('data:@file/markdown;base64,','').replace(';charset=utf-8','');
+            const decodedMarkdown = atob(markdown);
+            const html = convertMarkdownToHtml(decodedMarkdown);
+            document.getElementById('markdown-output').innerHTML = html;
+            document.querySelectorAll('pre code').forEach(el => {
+                hljs.highlightElement(el);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', renderMarkdown);
+
+    </script>
+</body>
+</html>
+```
+
+```text
